@@ -24,22 +24,25 @@ class _HomePageState extends State<HomePage> {
           children: [
             // Text field with Buttons................
             textFormField(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                textForTimeZone(weatherProvider),
-                textForPlaceName(weatherProvider),
-                textForWeatherDesc(weatherProvider),
-                textForTemp(weatherProvider),
-                textForFeelsLike(weatherProvider),
-                textForVisibility(weatherProvider),
-                textForHumidity(weatherProvider),
-                textForPressure(weatherProvider),
-                textForSunrise(weatherProvider),
-                textForSunset(weatherProvider),
-                textForWindSpeed(weatherProvider),
-                textForCloudData(weatherProvider),
-              ],
+            Visibility(
+              visible: weatherProvider.contentVisibility,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                    textForTimeZone(weatherProvider),
+                    textForPlaceName(weatherProvider),
+                    textForWeatherDesc(weatherProvider),
+                    textForTemp(weatherProvider),
+                    textForFeelsLike(weatherProvider),
+                    textForVisibility(weatherProvider),
+                    textForHumidity(weatherProvider),
+                    textForPressure(weatherProvider),
+                    textForSunrise(weatherProvider),
+                    textForSunset(weatherProvider),
+                    textForWindSpeed(weatherProvider),
+                    textForCloudData(weatherProvider),
+                  ]
+              ),
             ),
           ],
         );

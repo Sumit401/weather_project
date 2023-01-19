@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+
 import 'package:provider/provider.dart';
 
 import '../providers/weatherProvider.dart';
+import 'flutterToast.dart';
 import 'submitButton.dart';
 
 Widget textFormField() {
@@ -28,12 +30,13 @@ Widget textFormField() {
 
 inputDecoration(weatherProvider) {
   return InputDecoration(
-      labelText: "Input Location Name",
+      labelText: "Location Name",
       suffixIcon: submitButton(weatherProvider),
       icon: IconButton(
         icon: const Icon(FontAwesomeIcons.locationCrosshairs,
             color: Colors.black),
         onPressed: () async {
+          FocusManager.instance.primaryFocus?.unfocus();
           try {
             Geolocator.requestPermission();
             Position position = await Geolocator.getCurrentPosition();
@@ -41,6 +44,7 @@ inputDecoration(weatherProvider) {
             await weatherProvider.getWeatherInfo();
           } on Exception catch (e) {
             print(e.toString());
+            flutterToast("Location Not Found");
           }
         },
       ));

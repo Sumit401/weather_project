@@ -4,6 +4,9 @@ import '../httpClassRequest.dart';
 import '../jsonFiles/weatherJson.dart';
 
 class WeatherProvider extends ChangeNotifier {
+
+  bool contentVisibility= false;
+
   Weather? weatherInfo;
   String? locationName;
 
@@ -40,7 +43,7 @@ class WeatherProvider extends ChangeNotifier {
     sunrise = weatherInfo?.sys?.sunrise;
     sunset = weatherInfo?.sys?.sunset;
     placeName = weatherInfo?.name;
-
+    contentVisibility=true;
     notifyListeners();
   }
 
