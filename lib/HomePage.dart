@@ -17,20 +17,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Weather Data")),
-      body: Consumer<WeatherProvider>(
-          builder: (context, weatherProvider, child) {
+      body:
+          Consumer<WeatherProvider>(builder: (context, weatherProvider, child) {
         return Container(
           alignment: Alignment.center,
-          color: Colors.blueAccent,
           child: Stack(
             fit: StackFit.expand,
             alignment: AlignmentDirectional.center,
             children: [
-              Image.asset("assets/images/background.png", fit: BoxFit.fill),
+              Opacity(
+                  opacity: 0.6,
+                  child: Image.asset(
+                    "assets/images/background.png",
+                    fit: BoxFit.fill,
+                  )),
               textFormField(),
-              Container(
-                margin: EdgeInsets.only(top: 200,bottom: 200),
-                decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(200)),color: Color.fromARGB(90, 30, 60, 20)),
+              Positioned(
+                bottom: MediaQuery.of(context).size.height / 1.7,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -53,17 +56,16 @@ class _HomePageState extends State<HomePage> {
                             textForSunset(weatherProvider),
                             textForWindSpeed(weatherProvider),
                             textForCloudData(weatherProvider),
-                          ]
-                      ),
+                          ]),
                     ),
                   ],
-                )
+                ),
               ),
             ],
           ),
         );
 
-          /*Column(
+        /*Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // Text field with Buttons................
