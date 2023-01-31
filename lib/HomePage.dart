@@ -31,35 +31,36 @@ class _HomePageState extends State<HomePage> {
                     "assets/images/background.png",
                     fit: BoxFit.fill,
                   )),
-              textFormField(),
-              Positioned(
-                bottom: MediaQuery.of(context).size.height / 1.7,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    // Text field with Buttons................
+              Column(
+                children: [
+                  textFormField(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      // Text field with Buttons................
 
-                    Visibility(
-                      visible: weatherProvider.contentVisibility,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            textForTimeZone(weatherProvider),
-                            textForPlaceName(weatherProvider),
-                            textForWeatherDesc(weatherProvider),
-                            textForTemp(weatherProvider),
-                            textForFeelsLike(weatherProvider),
-                            textForVisibility(weatherProvider),
-                            textForHumidity(weatherProvider),
-                            textForPressure(weatherProvider),
-                            textForSunrise(weatherProvider),
-                            textForSunset(weatherProvider),
-                            textForWindSpeed(weatherProvider),
-                            textForCloudData(weatherProvider),
-                          ]),
-                    ),
-                  ],
-                ),
+                      Visibility(
+                        visible: weatherProvider.contentVisibility,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              textForTimeZone(weatherProvider),
+                              textForPlaceName(weatherProvider),
+                              textForWeatherDesc(weatherProvider),
+                              textForTemp(weatherProvider),
+                              textForFeelsLike(weatherProvider),
+                              textForVisibility(weatherProvider),
+                              textForHumidity(weatherProvider),
+                              textForPressure(weatherProvider),
+                              textForSunrise(weatherProvider),
+                              textForSunset(weatherProvider),
+                              textForWindSpeed(weatherProvider),
+                              textForCloudData(weatherProvider),
+                            ]),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),

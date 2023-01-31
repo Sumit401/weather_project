@@ -7,6 +7,7 @@ import 'flutterToast.dart';
 
 Widget submitButton(weatherProvider) {
   return IconButton(
+    color: Colors.white,
     onPressed: () async {
       FocusManager.instance.primaryFocus?.unfocus();
       // Get location data..........
